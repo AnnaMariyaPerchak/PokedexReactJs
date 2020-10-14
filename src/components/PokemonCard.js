@@ -4,9 +4,9 @@ const getPokemonTypes = (types) => {
   let content = [];
   for (let idx in types) {
     const item = types[idx];
-    content.push(item.type.name + " ");
+    content.push(item.type.name);
   }
-  return content;
+  return content.toString();
 };
 
 const PokemonCard = ({ pokemon, handleOnClick }) => {
@@ -17,7 +17,7 @@ const PokemonCard = ({ pokemon, handleOnClick }) => {
         <div key={pokemon.id}>
           <img src={pokemon.sprites["front_default"]} alt="pokemon" />
           <b>{pokemon.name}</b>
-          <h6>Types:{getPokemonTypes(pokemon.types)}</h6>
+          <p style={{fontSize:"12px"}}>{getPokemonTypes(pokemon.types)}</p>
         </div>
       </button>
     </div>
